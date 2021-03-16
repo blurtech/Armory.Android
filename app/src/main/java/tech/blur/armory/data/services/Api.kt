@@ -42,9 +42,9 @@ abstract class Api {
         }
     }
 
-    private fun buildUrl(path: String) = "$URL/$path"
+    private fun buildUrl(path: String) = "$URL$path"
 
     companion object {
-        private const val URL = ""
+        private const val URL = "https://armory-backend.herokuapp.com/"
     }
 }
