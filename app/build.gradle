@@ -68,6 +68,9 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.4"
     implementation "androidx.navigation:navigation-ui-ktx:2.3.4"
 
+    // DateTime
+    implementation "com.soywiz.korlibs.klock:klock:2.0.7"
+
     // Tests
     testImplementation "junit:junit:4.13.2"
     androidTestImplementation "androidx.test.ext:junit:1.1.2"
