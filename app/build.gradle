@@ -4,6 +4,10 @@ plugins {
     id "kotlin-kapt"
 }
 
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
@@ -70,6 +74,7 @@ dependencies {
 
     // DateTime
     implementation "com.soywiz.korlibs.klock:klock:2.0.7"
+    implementation "com.github.AllanHasegawa.Tempo:tempo:1.0.0-alpha01"
 
     // Tests
     testImplementation "junit:junit:4.13.2"
