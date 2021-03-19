@@ -1,4 +1,4 @@
-package tech.blur.armory.di
+ package tech.blur.armory.di
 
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module

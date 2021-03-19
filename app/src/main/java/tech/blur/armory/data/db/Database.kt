@@ -8,4 +8,8 @@ import tech.blur.armory.data.db.entities.UserEntity
 @Database(entities = [UserEntity::class], version = 1)
 abstract class Database: RoomDatabase() {
     abstract fun userDao(): UserDao
+
+    companion object {
+        const val NAME = "armory"
+    }
 }

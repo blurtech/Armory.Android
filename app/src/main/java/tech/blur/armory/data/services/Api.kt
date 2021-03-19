@@ -8,14 +8,19 @@ import kotlinx.serialization.json.Json
 import tech.blur.armory.common.Result
 
 abstract class Api(private val client: HttpClient) {
+    private val json = Json {
+        ignoreUnknownKeys = true
+    }
+
     protected suspend fun <T> runRequest(
         serializer: KSerializer<T>,
         builder: suspend HttpClient.() -> HttpResponse,
     ): Result<T, Exception> {
         return try {
             val response = builder(client)
+
             val body = response.content.readUTF8Line()
-            Result.success(Json.decodeFromString(serializer, body!!))
+            Result.success(json.decodeFromString(serializer, body!!))
 //            return if (response.status.isSuccess()) {
 //
 //            } else {

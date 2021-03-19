@@ -27,43 +27,41 @@ class MainActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.nav_host_fragment)
 
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
-            )
-        )
+        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+            when (destination.id) {
+                R.id.navigation_loginFragment, R.id.navigation_registrationFragment -> setUpLoginScene(controller)
+                else -> setUpMainScene(controller)
+            }
+        }
 
-        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
         viewModel.state.observeNonNull(this) {
             if (it.isLoggedIn) {
+                navController.navigate(
+                    R.id.navigation_myEvents,
+                    null,
+                    NavOptions.Builder().setPopUpTo(R.id.mobile_navigation, true).build()
+                )
+
                 setUpMainScene(navController)
             } else {
+                navController.navigate(
+                    R.id.navigation_loginFragment ,
+                    null,
+                    NavOptions.Builder().setPopUpTo(R.id.mobile_navigation, true).build()
+                )
+
                 setUpLoginScene(navController)
             }
         }
     }
 
     private fun setUpLoginScene(navController: NavController) {
-        actionBar!!.hide()
         bottomBar.isVisible = false
-
-        navController.navigate(
-            R.id.navigation_loginFragment,
-            null,
-            NavOptions.Builder().setPopUpTo(R.id.navigation_loginFragment, true).build()
-        )
     }
 
     private fun setUpMainScene(navController: NavController) {
-        actionBar!!.show()
         bottomBar.isVisible = true
-
-        navController.navigate(
-            R.id.navigation_myEvents,
-            null,
-            NavOptions.Builder().setPopUpTo(R.id.navigation_myEvents, true).build()
-        )
     }
 }

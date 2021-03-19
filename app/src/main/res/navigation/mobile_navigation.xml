@@ -26,9 +26,32 @@
     <fragment
         android:id="@+id/navigation_loginFragment"
         android:name="tech.blur.armory.presentation.login.LoginFragment"
-        android:label="LoginFragment" >
+        tools:layout="@layout/fragment_login"
+        android:label="LoginFragment">
         <action
-            android:id="@+id/action_loginFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
+            android:id="@+id/action_loginFragment_to_myEvents"
+            app:destination="@id/navigation_myEvents"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/mobile_navigation"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_registrationFragment"
+            app:destination="@id/navigation_registrationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_registrationFragment"
+        android:name="tech.blur.armory.presentation.registration.RegistrationFragment"
+        android:label="RegistrationFragment"
+        tools:layout="@layout/fragment_registration">
+        <action
+            android:id="@+id/action_registrationFragment_to_myEvents"
+            app:destination="@id/navigation_myEvents"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/mobile_navigation"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_registrationFragment_to_loginFragment"
+            app:destination="@id/navigation_loginFragment" />
     </fragment>
 </navigation>
