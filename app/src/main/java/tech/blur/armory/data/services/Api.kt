@@ -1,26 +1,16 @@
 package tech.blur.armory.data.services
 
 import io.ktor.client.*
-import io.ktor.client.features.json.*
-import io.ktor.client.features.json.serializer.*
 import io.ktor.client.statement.*
 import io.ktor.utils.io.*
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.json.Json
 import tech.blur.armory.common.Result
 
-abstract class Api {
-    private val client = HttpClient {
-//        expectSuccess = false
-
-        install(JsonFeature) {
-            serializer = KotlinxSerializer()
-        }
-    }
-
+abstract class Api(private val client: HttpClient) {
     protected suspend fun <T> runRequest(
-            serializer: KSerializer<T>,
-            builder: suspend HttpClient.() -> HttpResponse,
+        serializer: KSerializer<T>,
+        builder: suspend HttpClient.() -> HttpResponse,
     ): Result<T, Exception> {
         return try {
             val response = builder(client)
@@ -42,7 +32,7 @@ abstract class Api {
         }
     }
 
-    private fun buildUrl(path: String) = "$URL$path"
+    protected fun buildUrl(path: String) = "$URL$path"
 
     companion object {
         private const val URL = "https://armory-backend.herokuapp.com/"
