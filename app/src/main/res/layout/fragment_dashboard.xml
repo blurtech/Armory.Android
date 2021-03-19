@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".presentation.dashboard.DashboardFragment">
 
-    <TextView
+    <Button
         android:id="@+id/text_dashboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

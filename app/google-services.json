@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "498874953119",
+    "project_id": "armory-1616154044950",
+    "storage_bucket": "armory-1616154044950.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498874953119:android:a43d30cd5f971c2d2d61aa",
+        "android_client_info": {
+          "package_name": "tech.blur.armory"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "498874953119-ernq93caje17ccjdl6g44hc29k2m2thu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tech.blur.armory",
+            "certificate_hash": "314c5f97d48a201bd457a2455391b683c9f8efa3"
+          }
+        },
+        {
+          "client_id": "498874953119-aqvudjgb2k6ate4khufum8i6v8aqo4f3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwJ8qXY73dusXKAtxcJu7tUboZTlfaFS0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "498874953119-aqvudjgb2k6ate4khufum8i6v8aqo4f3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
