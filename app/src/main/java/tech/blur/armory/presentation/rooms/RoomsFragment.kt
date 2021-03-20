@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import org.koin.android.ext.android.inject
@@ -12,6 +11,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import tech.blur.armory.R
 import tech.blur.armory.data.providers.ResourceProvider
 import tech.blur.armory.databinding.FragmentRoomsBinding
+import tech.blur.armory.presentation.RoomDetailsFragment
 import tech.blur.armory.presentation.common.BindingFragment
 import tech.blur.armory.presentation.common.ErrorPopup
 
@@ -33,7 +33,12 @@ class RoomsFragment : BindingFragment<FragmentRoomsBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         if (!::roomsAdapter.isInitialized) {
-            roomsAdapter = RoomsAdapter(resourceProvider)
+            roomsAdapter = RoomsAdapter(resourceProvider, onRoomClicked = {
+                findNavController().navigate(
+                    R.id.action_roomsFragment_to_roomDetailsFragment,
+                    RoomDetailsFragment.bundleArgs(it)
+                )
+            })
         }
 
         with(binding) {

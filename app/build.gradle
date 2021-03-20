@@ -3,7 +3,7 @@ plugins {
     id "kotlin-android"
     id "kotlin-kapt"
     id "com.google.gms.google-services"
-    id 'org.jetbrains.kotlin.plugin.serialization' version '1.4.31'
+    id "org.jetbrains.kotlin.plugin.serialization" version "1.4.31"
 }
 
 repositories {
@@ -59,7 +59,7 @@ dependencies {
 
     // Room
     implementation "androidx.room:room-runtime:2.2.6"
-    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation "com.google.android.gms:play-services-auth:19.0.0"
     kapt "androidx.room:room-compiler:2.2.6"
     implementation "androidx.room:room-ktx:2.2.6"
 
@@ -94,6 +94,10 @@ dependencies {
     implementation "com.google.oauth-client:google-oauth-client-jetty:1.31.4"
     implementation "com.google.apis:google-api-services-calendar:v3-rev20210215-1.31.0"
 
+    //Glide
+    implementation "com.github.bumptech.glide:glide:4.12.0"
+    annotationProcessor "com.github.bumptech.glide:compiler:4.12.0"
+    
     implementation "com.google.auth:google-auth-library-credentials:0.25.2"
 
     // Tests

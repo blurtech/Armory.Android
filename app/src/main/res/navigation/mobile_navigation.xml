@@ -15,10 +15,13 @@
         android:id="@+id/navigation_roomsFragment"
         android:name="tech.blur.armory.presentation.rooms.RoomsFragment"
         android:label="Список комнат"
-        tools:layout="@layout/fragment_rooms" >
+        tools:layout="@layout/fragment_rooms">
         <action
             android:id="@+id/action_roomsFragment_to_findRoomFragment"
             app:destination="@id/navigation_findRoomFragment" />
+        <action
+            android:id="@+id/action_roomsFragment_to_roomDetailsFragment"
+            app:destination="@id/navigation_roomDetailsFragment" />
     </fragment>
 
     <fragment
@@ -69,5 +72,12 @@
     <fragment
         android:id="@+id/navigation_findRoomFragment"
         android:name="tech.blur.armory.presentation.findRoom.FindRoomFragment"
-        android:label="FindRoomFragment" />
+        android:label="FindRoomFragment"
+        tools:layout="@layout/fragment_findroom" />
+
+    <fragment
+        android:id="@+id/navigation_roomDetailsFragment"
+        android:name="tech.blur.armory.presentation.RoomDetailsFragment"
+        android:label="RoomDetailsFragment"
+        tools:layout="@layout/fragment_roomdetails" />
 </navigation>

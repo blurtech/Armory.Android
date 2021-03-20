@@ -10,14 +10,18 @@ import tech.blur.armory.common.TrueTime
 import tech.blur.armory.data.providers.ResourceProvider
 import tech.blur.armory.databinding.ItemRoomsRoomBinding
 import tech.blur.armory.databinding.ItemRoomsTitleBinding
+import tech.blur.armory.domain.models.Room
 import kotlin.math.roundToInt
 
-class RoomsAdapter(private val resourceProvider: ResourceProvider) :
+class RoomsAdapter(
+    private val resourceProvider: ResourceProvider,
+    private val onRoomClicked: (Room) -> Unit
+) :
     RecyclerView.Adapter<RoomsAdapter.BaseViewHolder>() {
 
-    private var items: List<RoomsViewState.Room> = emptyList()
+    private var items: List<Room> = emptyList()
 
-    fun setItems(newItems: List<RoomsViewState.Room>) {
+    fun setItems(newItems: List<Room>) {
         items = newItems
         notifyDataSetChanged() // todo replace with diff
     }
@@ -43,6 +47,7 @@ class RoomsAdapter(private val resourceProvider: ResourceProvider) :
         TYPE_ROOM -> {
             BaseViewHolder.RoomViewHolder(
                 resourceProvider,
+                onRoomClicked,
                 ItemRoomsRoomBinding.inflate(LayoutInflater.from(parent.context), parent, false)
             )
         }
@@ -65,10 +70,14 @@ class RoomsAdapter(private val resourceProvider: ResourceProvider) :
         RecyclerView.ViewHolder(binding.root) {
         class RoomViewHolder(
             private val resourceProvider: ResourceProvider,
+            private val onRoomClicked: (Room) -> Unit,
             binding: ItemRoomsRoomBinding
         ) : BaseViewHolder(binding) {
-            fun bind(room: RoomsViewState.Room) {
+            fun bind(room: Room) {
                 with(binding as ItemRoomsRoomBinding) {
+                    root.setOnClickListener {
+                        onRoomClicked(room)
+                    }
                     imageViewRoomLed.setImageResource(
                         if (room.led) R.drawable.ic_room_led else R.drawable.ic_room_led_disabled
                     )
@@ -94,7 +103,7 @@ class RoomsAdapter(private val resourceProvider: ResourceProvider) :
                             } else {
                                 rooms.first {
                                     it.startTime >= now || it.endTime >= now || (it.startTime <= now || it.endTime <= now)
-                                }   
+                                }
                             }
                         }
 
