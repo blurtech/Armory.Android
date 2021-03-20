@@ -38,6 +38,33 @@ class MyEventsFragment : BindingFragment<FragmentMyeventsBinding>() {
                     R.id.chip_myEvents_mine -> viewModel.filterEvents(MyEventsViewModel.Filter.MINE)
                     R.id.chip_myEvents_invites -> viewModel.filterEvents(MyEventsViewModel.Filter.INVITES)
                 }
+
+                if (chipMyEventsAll.isChecked) animateElevation(
+                    chipMyEventsAll,
+                    chipMyEventsAll.elevation,
+                    6f.dp
+                )
+                else {
+                    animateElevation(chipMyEventsAll, chipMyEventsAll.elevation, 0f)
+                }
+
+                if (chipMyEventsMine.isChecked) animateElevation(
+                    chipMyEventsMine,
+                    chipMyEventsMine.elevation,
+                    6f.dp
+                )
+                else {
+                    animateElevation(chipMyEventsMine, chipMyEventsMine.elevation, 0f)
+                }
+
+                if (chipMyEventsInvites.isChecked) animateElevation(
+                    chipMyEventsInvites,
+                    chipMyEventsInvites.elevation,
+                    6f.dp
+                )
+                else {
+                    animateElevation(chipMyEventsInvites, chipMyEventsInvites.elevation, 0f)
+                }
             }
 
             recyclerViewMyEvents.adapter = eventsAdapter
@@ -46,7 +73,7 @@ class MyEventsFragment : BindingFragment<FragmentMyeventsBinding>() {
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     if ((recyclerViewMyEvents.layoutManager as LinearLayoutManager).findFirstCompletelyVisibleItemPosition() == 0) {
                         if (linearLayoutMyEventsToolbar.elevation == 0f) return
-                        animateToolbarElevation(true)
+                        animateElevation(linearLayoutMyEventsToolbar, 4f.dp, 0f)
 
                     } else {
                         if (linearLayoutMyEventsToolbar.elevation > 0f) return
@@ -60,6 +87,10 @@ class MyEventsFragment : BindingFragment<FragmentMyeventsBinding>() {
             if (state.myId != -1) {
                 eventsAdapter.myId = state.myId
                 eventsAdapter.setItems(state.events)
+
+                binding.chipMyEventsAll.isEnabled = true
+                binding.chipMyEventsMine.isEnabled = true
+                binding.chipMyEventsInvites.isEnabled = true
             }
 
             state.onError.handle {
@@ -74,17 +105,11 @@ class MyEventsFragment : BindingFragment<FragmentMyeventsBinding>() {
         }
     }
 
-    private fun animateToolbarElevation(animateOut: Boolean) {
-        var valueFrom = 4f.dp
-        var valueTo = 0f
-        if (!animateOut) {
-            valueTo = valueFrom
-            valueFrom = 0f
-        }
-        ValueAnimator.ofFloat(valueFrom, valueTo).setDuration(250).apply {
+    private fun animateElevation(view: View, from: Float, to: Float) {
+        ValueAnimator.ofFloat(from, to).setDuration(250).apply {
             startDelay = 0
             addUpdateListener {
-                binding.linearLayoutMyEventsToolbar.elevation = it.animatedValue as Float
+                view.elevation = it.animatedValue as Float
             }
             start()
         }
