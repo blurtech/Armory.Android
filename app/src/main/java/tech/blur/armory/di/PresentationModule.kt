@@ -5,9 +5,14 @@ import org.koin.dsl.module
 import tech.blur.armory.presentation.MainViewModel
 import tech.blur.armory.presentation.login.LoginViewModel
 import tech.blur.armory.presentation.registration.RegistrationViewModel
+import tech.blur.armory.presentation.rooms.RoomsViewModel
+import tech.blur.armory.presentation.settings.SettingsViewModel
+import tech.blur.armory.presentation.settings.SettingsViewState
 
 val presentationModule = module {
     viewModel { MainViewModel(get()) }
     viewModel { LoginViewModel(get()) }
     viewModel { RegistrationViewModel(get()) }
+    viewModel { RoomsViewModel(get()) }
+    viewModel { SettingsViewModel(get()) }
 }

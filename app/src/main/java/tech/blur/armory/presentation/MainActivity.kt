@@ -6,8 +6,6 @@ import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -39,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.state.observeNonNull(this) {
             if (it.isLoggedIn) {
                 navController.navigate(
-                    R.id.navigation_myEvents,
+                    R.id.navigation_myEventsFragment,
                     null,
                     NavOptions.Builder().setPopUpTo(R.id.mobile_navigation, true).build()
                 )
@@ -59,9 +57,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpLoginScene(navController: NavController) {
         bottomBar.isVisible = false
+
     }
 
     private fun setUpMainScene(navController: NavController) {
         bottomBar.isVisible = true
+
     }
 }

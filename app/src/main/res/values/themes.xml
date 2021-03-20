@@ -21,4 +21,9 @@
         <item name="cornerRadius">4dp</item>
         <item name="boxStrokeColor">@color/primary</item>
     </style>
+
+    <style name="Theme.Armory.RecyclerViewNoClip" parent="Theme.Armory">
+        <item name="android:clipChildren">false</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
 </resources>
