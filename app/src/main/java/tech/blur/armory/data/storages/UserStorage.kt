@@ -2,10 +2,10 @@ package tech.blur.armory.data.storages
 
 import tech.blur.armory.data.db.dao.UserDao
 import tech.blur.armory.data.db.entities.UserEntity
-import tech.blur.armory.domain.models.User
+import tech.blur.armory.domain.models.MyUser
 
 class UserStorage(private val userDao: UserDao) {
-    suspend fun insert(user: User) {
+    suspend fun insert(user: MyUser) {
         with(user) {
             userDao.insert(
                 UserEntity(id, email, name, surname, token)
@@ -13,7 +13,7 @@ class UserStorage(private val userDao: UserDao) {
         }
     }
 
-    suspend fun getUser(): User {
+    suspend fun getUser(): MyUser {
         return userDao.getUser()
     }
 

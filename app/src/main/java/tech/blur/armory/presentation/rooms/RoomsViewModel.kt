@@ -1,10 +1,12 @@
 package tech.blur.armory.presentation.rooms
 
 import androidx.lifecycle.viewModelScope
+import com.soywiz.klock.wrapped.value
 import kotlinx.coroutines.launch
 import tech.blur.armory.domain.commands.RoomCommand
 import tech.blur.armory.domain.models.Event
 import tech.blur.armory.domain.models.Room
+import tech.blur.armory.domain.models.User
 import tech.blur.armory.presentation.common.StateViewModel
 
 class RoomsViewModel(
@@ -37,9 +39,12 @@ class RoomsViewModel(
                                 bookings.map { event ->
                                     Event(
                                         event.id,
-                                        event.startTime.value,
-                                        event.endTime.value
+                                        event.startTime.value.utc,
+                                        event.endTime.value.utc
                                     )
+                                },
+                                admin?.let {
+                                    User(it.id, it.firstName, it.lastName, it.email)
                                 }
                             )
                         }

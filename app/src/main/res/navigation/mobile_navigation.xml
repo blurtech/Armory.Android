@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_myEventsFragment"
-        android:name="tech.blur.armory.presentation.home.HomeFragment"
+        android:name="tech.blur.armory.presentation.myEvents.MyEventsFragment"
         android:label="Мероприятия"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_myevents" />
 
     <fragment
         android:id="@+id/navigation_roomsFragment"

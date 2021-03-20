@@ -10,4 +10,9 @@
 
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+
+    <color name="chip_all_inactive">#E1E1E1</color>
+    <color name="chip_all_active">#2BD451</color>
+    <color name="chip_mine_active">#005ECC</color>
+    <color name="chip_invites_active">#9700CC</color>
 </resources>

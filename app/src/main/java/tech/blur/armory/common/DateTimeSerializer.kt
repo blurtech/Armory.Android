@@ -25,5 +25,5 @@ object DateTimeSerializer : KSerializer<WDateTime> {
         encoder.encodeString(value.value.format(DateFormat(DATE_FORMAT)))
     }
 
-    private const val DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+    private const val DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ"
 }

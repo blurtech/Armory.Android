@@ -16,8 +16,7 @@ import kotlin.math.roundToInt
 class RoomsAdapter(
     private val resourceProvider: ResourceProvider,
     private val onRoomClicked: (Room) -> Unit
-) :
-    RecyclerView.Adapter<RoomsAdapter.BaseViewHolder>() {
+) : RecyclerView.Adapter<RoomsAdapter.BaseViewHolder>() {
 
     private var items: List<Room> = emptyList()
 

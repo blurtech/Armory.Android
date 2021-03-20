@@ -12,5 +12,6 @@ data class Room(
     val led: Boolean,
     val wifi: Boolean,
     val capacity: Int,
-    val nearEvents: List<Event>
+    val nearEvents: List<Event>,
+    val admin: User?
 ) : Serializable

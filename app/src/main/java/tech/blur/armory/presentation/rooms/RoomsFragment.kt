@@ -21,7 +21,7 @@ class RoomsFragment : BindingFragment<FragmentRoomsBinding>() {
     private val resourceProvider: ResourceProvider by inject()
 
 
-    lateinit var roomsAdapter: RoomsAdapter
+    private lateinit var roomsAdapter: RoomsAdapter
 
 
     override fun inflateBinding(

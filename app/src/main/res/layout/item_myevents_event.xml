@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="6dp"
+    android:layout_marginBottom="6dp"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout_event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/view_myEvents_indicator"
+            android:layout_width="4dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="#005ECC" />
+
+        <TextView
+            android:id="@+id/textView_myEvents_roomName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/view_myEvents_indicator"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Переговорная 1" />
+
+        <ImageView
+            android:id="@+id/imageView_myEvents_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_myevents_time"
+            app:layout_constraintBottom_toBottomOf="@id/textView_myEvents_flor"
+            app:layout_constraintEnd_toStartOf="@id/textView_myEvents_time"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@id/textView_myEvents_flor"
+            app:layout_constraintTop_toTopOf="@id/textView_myEvents_flor" />
+
+        <TextView
+            android:id="@+id/textView_myEvents_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:textColor="#005ECC"
+            app:layout_constraintBottom_toBottomOf="@id/imageView_myEvents_time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/imageView_myEvents_time"
+            tools:text="15:00 – 16:00" />
+
+        <ImageView
+            android:id="@+id/imageView_myEvents_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/ic_myevents_date"
+            app:layout_constraintEnd_toEndOf="@id/imageView_myEvents_time"
+            app:layout_constraintStart_toStartOf="@id/imageView_myEvents_time"
+            app:layout_constraintTop_toBottomOf="@id/imageView_myEvents_time" />
+
+        <TextView
+            android:id="@+id/textView_myEvents_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textColor="#005ECC"
+            app:layout_constraintBottom_toBottomOf="@id/imageView_myEvents_date"
+            app:layout_constraintStart_toEndOf="@id/imageView_myEvents_date"
+            app:layout_constraintTop_toTopOf="@id/imageView_myEvents_date"
+            tools:text="15:00 – 16:00" />
+
+        <TextView
+            android:id="@+id/textView_myEvents_flor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/textGrey"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/textView_myEvents_roomName"
+            app:layout_constraintStart_toEndOf="@id/textView_myEvents_roomName"
+            app:layout_constraintTop_toTopOf="@id/textView_myEvents_roomName"
+            tools:text="Этаж 2" />
+
+        <TextView
+            android:id="@+id/textView_myEvents_eventName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toEndOf="@id/view_myEvents_indicator"
+            app:layout_constraintTop_toBottomOf="@id/textView_myEvents_roomName"
+            tools:text="«Собеседование отдела»" />
+
+        <TextView
+            android:id="@+id/textView_myEvents_invitedByTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:text="Пригласил:"
+            android:textColor="@color/textGrey"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/view_myEvents_indicator"
+            app:layout_constraintTop_toBottomOf="@id/textView_myEvents_eventName" />
+
+        <TextView
+            android:id="@+id/textView_myEvents_invitedBy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/textView_myEvents_invitedByTitle"
+            app:layout_constraintTop_toBottomOf="@id/textView_myEvents_eventName"
+            tools:text="Кот" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

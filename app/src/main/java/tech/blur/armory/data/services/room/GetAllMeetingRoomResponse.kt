@@ -1,11 +1,11 @@
-@file:UseSerializers(DateTimeSerializer::class)
+@file:UseSerializers(DateTimeTzSerializer::class)
 
 package tech.blur.armory.data.services.room
 
-import com.soywiz.klock.wrapped.WDateTime
+import com.soywiz.klock.wrapped.WDateTimeTz
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.UseSerializers
-import tech.blur.armory.common.DateTimeSerializer
+import tech.blur.armory.common.DateTimeTzSerializer
 
 @Serializable
 data class GetAllMeetingRoomResponse(
@@ -29,8 +29,8 @@ data class GetAllMeetingRoomResponse(
     @Serializable
     data class Booking(
         val id: Int,
-        val startTime: WDateTime,
-        val endTime: WDateTime,
+        val startTime: WDateTimeTz,
+        val endTime: WDateTimeTz,
     )
 
     @Serializable
