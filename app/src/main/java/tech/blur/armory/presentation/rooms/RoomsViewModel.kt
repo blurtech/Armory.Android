@@ -3,6 +3,8 @@ package tech.blur.armory.presentation.rooms
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import tech.blur.armory.domain.commands.RoomCommand
+import tech.blur.armory.domain.models.Event
+import tech.blur.armory.domain.models.Room
 import tech.blur.armory.presentation.common.StateViewModel
 
 class RoomsViewModel(
@@ -22,7 +24,7 @@ class RoomsViewModel(
                 requireStateModel().copy(
                     rooms = it.rooms.map { response ->
                         with(response) {
-                            RoomsViewState.Room(
+                            Room(
                                 id,
                                 "$type $id",
                                 square,
@@ -33,7 +35,7 @@ class RoomsViewModel(
                                 wifi,
                                 seatingCapacity,
                                 bookings.map { event ->
-                                    RoomsViewState.Event(
+                                    Event(
                                         event.id,
                                         event.startTime.value,
                                         event.endTime.value

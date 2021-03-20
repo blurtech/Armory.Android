@@ -26,4 +26,10 @@
         <item name="android:clipChildren">false</item>
         <item name="android:clipToPadding">false</item>
     </style>
+
+    <style name="Theme.Armory.Title" parent="Widget.AppCompat.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">38sp</item>
+    </style>
 </resources>

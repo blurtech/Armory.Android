@@ -13,6 +13,10 @@ class TrueTime {
              return DateTime(unixTime()).toOffset(TimezoneOffset(timezoneOffset))
          }
 
+         fun nowLocal(): DateTimeTz {
+             return DateTime(unixTime()).toOffset(DateTime.nowLocal().offset)
+         }
+
          fun nowUtc(): DateTime {
              return DateTime(unixTime())
          }

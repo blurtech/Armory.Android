@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import tech.blur.armory.R
 import tech.blur.armory.data.providers.ResourceProvider
 import tech.blur.armory.databinding.FragmentRoomsBinding
 import tech.blur.armory.presentation.common.BindingFragment
@@ -37,7 +39,7 @@ class RoomsFragment : BindingFragment<FragmentRoomsBinding>() {
         with(binding) {
             recyclerViewRooms.adapter = roomsAdapter
             fabRoomsFindRoom.setOnClickListener {
-                Toast.makeText(requireContext(), "ASdasd", Toast.LENGTH_LONG).show()
+                findNavController().navigate(R.id.action_roomsFragment_to_findRoomFragment)
             }
 
             recyclerViewRooms.addOnScrollListener(object : RecyclerView.OnScrollListener() {
