@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center|start"
             android:layout_marginStart="20dp"
-            android:text="Желаемая дата:"
+            android:text="дата:"
             android:textAllCaps="true"
             android:textColor="#99181818"
             android:textSize="12sp" />
@@ -266,10 +266,10 @@
 
             <SeekBar
                 android:id="@+id/seekBar_findRoom_square"
-                android:layout_width="146dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_gravity="center"
-                android:layout_marginStart="16dp"
                 android:hapticFeedbackEnabled="true"
                 android:thumbTint="@color/primary" />
 
@@ -278,7 +278,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|end"
-                android:layout_marginStart="16dp"
                 android:layout_marginEnd="20dp"
                 android:minEms="4"
                 android:textStyle="bold"
