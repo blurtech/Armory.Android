@@ -94,7 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center|end"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="112dp"
+            android:layout_marginEnd="120dp"
             app:cardBackgroundColor="#EBF4FF"
             app:cardCornerRadius="4dp"
             app:cardElevation="0dp"
