@@ -14,6 +14,8 @@ import tech.blur.armory.R
 import tech.blur.armory.common.TrueTime
 import tech.blur.armory.databinding.FragmentFindroomBinding
 import tech.blur.armory.presentation.common.BindingFragment
+import tech.blur.armory.presentation.rooms.Filter
+import tech.blur.armory.presentation.rooms.RoomsFragment
 
 class FindRoomFragment : BindingFragment<FragmentFindroomBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -59,7 +61,10 @@ class FindRoomFragment : BindingFragment<FragmentFindroomBinding>() {
                     TimePickerDialog(
                         requireContext(),
                         { _, hourOfDay, minutes ->
-                            dateTime = DateTimeTz.local(DateTime(date, Time(hourOfDay, minutes)), now.offset)
+                            dateTime = DateTimeTz.local(
+                                DateTime(date, Time(hourOfDay, minutes)),
+                                now.offset
+                            )
                             textViewFindRoomTime.text = dateTime.format("HH:mm")
                         },
                         dateTime.hours,
@@ -123,6 +128,8 @@ class FindRoomFragment : BindingFragment<FragmentFindroomBinding>() {
                 wifi = !wifi
             }
 
+            var square = 0
+
             with(seekBarFindRoomSquare) {
                 this.max = 64
 
@@ -137,6 +144,8 @@ class FindRoomFragment : BindingFragment<FragmentFindroomBinding>() {
                         } else {
                             progress.toString()
                         }
+
+                        square = progress
                     }
 
                     override fun onStartTrackingTouch(seekBar: SeekBar?) = Unit
@@ -146,7 +155,18 @@ class FindRoomFragment : BindingFragment<FragmentFindroomBinding>() {
             }
 
             buttonFindRoomShowRooms.setOnClickListener {
-
+                findNavController().navigate(
+                    R.id.action_findRoomFragment_to_roomsFragment, RoomsFragment.buildArgs(
+                        Filter(
+                            led = led,
+                            mic = mic,
+                            video = video,
+                            wifi = wifi,
+                            capacity = binding.textViewFindRoomCapacity.text!!.toString().toInt(),
+                            square = square
+                        )
+                    )
+                )
             }
         }
     }

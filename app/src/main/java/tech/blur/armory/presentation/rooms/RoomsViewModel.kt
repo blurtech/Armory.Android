@@ -10,7 +10,8 @@ import tech.blur.armory.domain.models.User
 import tech.blur.armory.presentation.common.StateViewModel
 
 class RoomsViewModel(
-    private val roomCommand: RoomCommand
+    private val roomCommand: RoomCommand,
+    private val filter: Filter?
 ) : StateViewModel<RoomsViewState>(RoomsViewState()) {
     init {
         load()
@@ -48,6 +49,12 @@ class RoomsViewModel(
                                 }
                             )
                         }
+                    }.let { rooms ->
+                        if (filter != null) {
+                            filterRooms(rooms, filter)
+                        } else {
+                            rooms
+                        }
                     }
                 )
             }.onSuccess {
@@ -60,7 +67,30 @@ class RoomsViewModel(
         }
     }
 
-    private fun Int.toBoolean(): Boolean {
-        return this != 0
+    private fun filterRooms(it: List<Room>, filter: Filter) = it.filter { room ->
+        val mic = filter.mic?.let {
+            if (it) room.mic
+            else true
+        } ?: true
+
+        val video = filter.video?.let {
+            if (it) room.video
+            else true
+        } ?: true
+
+        val led = filter.led?.let {
+            if (it) room.led
+            else true
+        } ?: true
+
+        val wifi = filter.wifi?.let {
+            if (it) room.wifi
+            else true
+        } ?: true
+
+        val square = filter.square?.let { room.square >= it } ?: true
+        val capacity = filter.capacity?.let { room.capacity >= it } ?: true
+
+        mic && video && led && wifi && square && capacity
     }
 }

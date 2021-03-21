@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 import tech.blur.armory.R
 import tech.blur.armory.data.providers.ResourceProvider
 import tech.blur.armory.databinding.FragmentRoomsBinding
@@ -17,7 +19,9 @@ import tech.blur.armory.presentation.common.ErrorPopup
 
 
 class RoomsFragment : BindingFragment<FragmentRoomsBinding>() {
-    private val viewModel: RoomsViewModel by viewModel()
+    private val viewModel: RoomsViewModel by viewModel {
+        parametersOf(getFilter(arguments))
+    }
     private val resourceProvider: ResourceProvider by inject()
 
 
@@ -71,5 +75,16 @@ class RoomsFragment : BindingFragment<FragmentRoomsBinding>() {
                 )
             }
         }
+    }
+
+    companion object {
+        private const val ARG_FILTER = "filter"
+
+        private fun getFilter(arguments: Bundle?) =
+            arguments?.getSerializable(ARG_FILTER) as? Filter
+
+        fun buildArgs(filter: Filter) = bundleOf(
+            ARG_FILTER to filter
+        )
     }
 }

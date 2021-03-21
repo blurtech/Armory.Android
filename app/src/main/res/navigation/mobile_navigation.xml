@@ -73,7 +73,12 @@
         android:id="@+id/navigation_findRoomFragment"
         android:name="tech.blur.armory.presentation.findRoom.FindRoomFragment"
         android:label="FindRoomFragment"
-        tools:layout="@layout/fragment_findroom" />
+        tools:layout="@layout/fragment_findroom">
+        <action
+            android:id="@+id/action_findRoomFragment_to_roomsFragment"
+            app:destination="@id/navigation_roomsFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_roomDetailsFragment"
