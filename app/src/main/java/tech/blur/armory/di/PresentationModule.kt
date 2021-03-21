@@ -11,6 +11,7 @@ import tech.blur.armory.presentation.myEvents.MyEventsViewModel
 import tech.blur.armory.presentation.registration.RegistrationViewModel
 import tech.blur.armory.presentation.rooms.Filter
 import tech.blur.armory.presentation.rooms.RoomsViewModel
+import tech.blur.armory.presentation.schedule.ScheduleViewModel
 import tech.blur.armory.presentation.settings.SettingsViewModel
 
 val presentationModule = module {
@@ -19,6 +20,7 @@ val presentationModule = module {
     viewModel { RegistrationViewModel(get()) }
     viewModel { (filter: Filter) -> RoomsViewModel(get(), filter) }
     viewModel { SettingsViewModel(get()) }
+    viewModel { (roomId: Int) -> ScheduleViewModel(get(), roomId) }
     viewModel { MyEventsViewModel(get(), get()) }
     viewModel { (id: Int) ->
         BookViewModel(

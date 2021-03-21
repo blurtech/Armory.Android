@@ -57,16 +57,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
-//        if (requestCode == 42)
-//        val accountManager = AccountManager.get(this)
-//        val accounts = accountManager.getAccountsByType("com.google")
-//        accounts.forEach {
-//            Log.v(localClassName, it.toString())
-//        }
-//    }
-//}
-
     private fun setUpLoginScene(navController: NavController) {
         bottomBar.isVisible = false
 

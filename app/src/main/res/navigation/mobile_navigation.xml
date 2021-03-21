@@ -88,6 +88,9 @@
         <action
             android:id="@+id/action_roomDetailsFragment_to_bookFragment"
             app:destination="@id/navigation_bookFragment" />
+        <action
+            android:id="@+id/action_roomDetailsFragment_to_scheduleFragment"
+            app:destination="@id/navigation_scheduleFragment" />
     </fragment>
 
     <fragment
@@ -95,4 +98,14 @@
         android:name="tech.blur.armory.presentation.book.BookFragment"
         android:label="BookFragment"
         tools:layout="@layout/fragment_book" />
+
+    <fragment
+        android:id="@+id/navigation_scheduleFragment"
+        android:name="tech.blur.armory.presentation.schedule.ScheduleFragment"
+        android:label="ScheduleFragment"
+        tools:layout="@layout/fragment_schedule">
+        <action
+            android:id="@+id/action_scheduleFragment_to_bookFragment"
+            app:destination="@id/navigation_bookFragment" />
+    </fragment>
 </navigation>

@@ -15,6 +15,7 @@ import tech.blur.armory.domain.models.Room
 import tech.blur.armory.presentation.book.BookFragment
 import tech.blur.armory.presentation.common.BindingFragment
 import tech.blur.armory.presentation.rooms.RoomsAdapter
+import tech.blur.armory.presentation.schedule.ScheduleFragment
 import kotlin.math.roundToInt
 
 class RoomDetailsFragment : BindingFragment<FragmentRoomdetailsBinding>() {
@@ -100,11 +101,17 @@ class RoomDetailsFragment : BindingFragment<FragmentRoomdetailsBinding>() {
             textViewRoomDetailsCapacity.text = "${room.capacity} чел."
 
             textViewRoomDetailsSchedule.setOnClickListener {
-
+                findNavController().navigate(
+                    R.id.action_roomDetailsFragment_to_scheduleFragment,
+                    ScheduleFragment.bundleArgs(room)
+                )
             }
 
             imageButtonRoomDetailsSchedule.setOnClickListener {
-
+                findNavController().navigate(
+                    R.id.action_roomDetailsFragment_to_scheduleFragment,
+                    ScheduleFragment.bundleArgs(room)
+                )
             }
 
             buttonRoomDetailsBook.setOnClickListener {
