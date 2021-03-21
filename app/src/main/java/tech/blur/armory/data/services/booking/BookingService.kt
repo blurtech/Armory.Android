@@ -11,6 +11,7 @@ class BookingService(private val bookingApi: BookingApi) {
         it.bookings.map { response ->
             Booking(
                 response.id,
+                response.name,
                 response.startTime.value.utc,
                 response.endTime.value.utc,
                 response.meetingRoomBooking.let { room ->

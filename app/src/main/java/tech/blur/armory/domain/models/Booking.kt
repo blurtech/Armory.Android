@@ -4,6 +4,7 @@ import com.soywiz.klock.DateTime
 
 data class Booking(
         val id: Int,
+        val name: String,
         val startTime: DateTime,
         val endTime: DateTime,
         val meetingRoomBooking: Room,

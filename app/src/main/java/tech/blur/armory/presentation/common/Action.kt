@@ -40,5 +40,9 @@ class Action<T : Any> : Serializable {
         }
     }
 
+    operator fun invoke(block: (T) -> Unit) {
+        handle(block)
+    }
+
     object Nothing : Serializable
 }

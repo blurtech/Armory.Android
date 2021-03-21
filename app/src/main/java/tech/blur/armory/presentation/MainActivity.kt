@@ -27,7 +27,9 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             when (destination.id) {
-                R.id.navigation_loginFragment, R.id.navigation_registrationFragment -> setUpLoginScene(controller)
+                R.id.navigation_loginFragment, R.id.navigation_registrationFragment -> setUpLoginScene(
+                    controller
+                )
                 else -> setUpMainScene(controller)
             }
         }
@@ -45,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                 setUpMainScene(navController)
             } else {
                 navController.navigate(
-                    R.id.navigation_loginFragment ,
+                    R.id.navigation_loginFragment,
                     null,
                     NavOptions.Builder().setPopUpTo(R.id.mobile_navigation, true).build()
                 )
@@ -54,6 +56,16 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+//        if (requestCode == 42)
+//        val accountManager = AccountManager.get(this)
+//        val accounts = accountManager.getAccountsByType("com.google")
+//        accounts.forEach {
+//            Log.v(localClassName, it.toString())
+//        }
+//    }
+//}
 
     private fun setUpLoginScene(navController: NavController) {
         bottomBar.isVisible = false

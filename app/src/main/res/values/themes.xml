@@ -24,6 +24,12 @@
         <item name="boxStrokeColor">@color/primary</item>
     </style>
 
+    <style name="Theme.Armory.Subtitle" parent="Theme.Armory">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/textGrey</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
     <style name="Theme.Armory.RecyclerViewNoClip" parent="Theme.Armory">
         <item name="android:clipChildren">false</item>
         <item name="android:clipToPadding">false</item>

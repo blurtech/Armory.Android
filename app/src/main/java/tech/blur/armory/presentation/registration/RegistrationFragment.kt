@@ -61,7 +61,7 @@ class RegistrationFragment : BindingFragment<FragmentRegistrationBinding>() {
                     textViewRegistrationHaveAccount.paintFlags or Paint.UNDERLINE_TEXT_FLAG
 
                 setOnClickListener {
-                    findNavController().navigate(R.id.action_registrationFragment_to_loginFragment)
+                    findNavController().popBackStack()
                 }
             }
 

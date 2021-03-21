@@ -12,6 +12,7 @@ import tech.blur.armory.R
 import tech.blur.armory.common.TrueTime
 import tech.blur.armory.databinding.FragmentRoomdetailsBinding
 import tech.blur.armory.domain.models.Room
+import tech.blur.armory.presentation.book.BookFragment
 import tech.blur.armory.presentation.common.BindingFragment
 import tech.blur.armory.presentation.rooms.RoomsAdapter
 import kotlin.math.roundToInt
@@ -105,7 +106,10 @@ class RoomDetailsFragment : BindingFragment<FragmentRoomdetailsBinding>() {
             }
 
             buttonRoomDetailsBook.setOnClickListener {
-
+                findNavController().navigate(
+                    R.id.action_roomDetailsFragment_to_bookFragment,
+                    BookFragment.bundleArgs(room.id, room.name)
+                )
             }
         }
     }

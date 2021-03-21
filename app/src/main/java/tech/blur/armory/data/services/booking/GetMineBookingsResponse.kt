@@ -14,6 +14,7 @@ data class GetMineBookingsResponse(
     @Serializable
     data class Booking(
         val id: Int,
+        val name: String,
         val startTime: WDateTimeTz,
         val endTime: WDateTimeTz,
         val meetingRoomBooking: MeetingRoom,

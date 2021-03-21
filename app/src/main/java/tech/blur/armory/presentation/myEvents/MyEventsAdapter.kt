@@ -63,7 +63,7 @@ class MyEventsAdapter(
                     onEventClicked(event)
                 }
 
-                textViewMyEventsEventName.text = "«Делаем вид, что работаем»" // todo event.name
+                textViewMyEventsEventName.text = event.name
                 textViewMyEventsFlor.text = "Этаж ${event.meetingRoomBooking.flor}"
                 textViewMyEventsRoomName.text = event.meetingRoomBooking.name
 
