@@ -53,7 +53,7 @@ class BookFragment : BindingFragment<FragmentBookBinding>() {
             var dateTime: DateTimeTz
 
             TrueTime.nowLocal().let { now ->
-                date = Date(now.yearInt, now.month0, now.dayOfMonth)
+                date = Date(now.yearInt, now.month, now.dayOfMonth)
                 dateTime = now
 
                 textViewBookRoomName.text = getRoomNameFromArgs(requireArguments())

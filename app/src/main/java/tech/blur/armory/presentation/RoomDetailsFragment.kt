@@ -62,6 +62,8 @@ class RoomDetailsFragment : BindingFragment<FragmentRoomdetailsBinding>() {
                 }
             }
 
+            buttonRoomDetailsBook.isEnabled = status != RoomsAdapter.RoomStatus.Busy
+
             when (status) {
                 RoomsAdapter.RoomStatus.Free -> {
                     textViewRoomDetailsStatus.text = "Свободна"
